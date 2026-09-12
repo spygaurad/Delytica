@@ -1,33 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PageTransition from "@/components/PageTransition";
 import FadeIn from "@/components/FadeIn";
+import ContactForm from "@/components/ContactForm";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://luminamedspa.agency" },
+  alternates: { canonical: "https://delytica.agency" },
 };
 
 const stats = [
-  { value: "17–22%", label: "No-show rate in practices without a care sequence" },
-  { value: "37%", label: "First-visit patients who never return without follow-up" },
-  { value: "~3 clients", label: "To recover the full cost of the Foundation tier" },
+  { value: "17–22%", label: "avg. no-show rate without reminders" },
+  { value: "37%", label: "of first-visit patients never return" },
+  { value: "~3 clients", label: "to break even on Practice Essentials" },
 ];
 
 const gaps = [
   {
-    num: "01",
-    title: "The Unanswered Call",
-    body: "Every call that goes unanswered reaches a competitor next. An instant, personal response — even when your team is with someone — changes that outcome.",
+    title: "The unanswered call",
+    body: "Unanswered calls go straight to a competitor. We respond instantly — even when your team is occupied.",
   },
   {
-    num: "02",
-    title: "The Empty Chair",
-    body: "No-shows are a structural problem, not a patient problem. Well-timed care sequences before each appointment prevent most of them before they happen.",
+    title: "The empty chair",
+    body: "No-shows aren't a patient problem — they're a systems problem. The right reminder, timed right, prevents most of them.",
   },
   {
-    num: "03",
-    title: "The Patient Who Stopped Coming",
-    body: "Most first-visit patients don't return — not because they were unhappy, but because no one invited them back. Reactivation closes that gap, quietly.",
+    title: "The patient who stopped coming",
+    body: "Most first-visit patients vanish — not because they were unhappy, but because no one followed up. We fix that.",
   },
 ];
 
@@ -45,7 +43,6 @@ const tiers = [
       "Patient reactivation",
       "Unified patient communications",
     ],
-    cta: "Get Started",
     highlight: true,
   },
   {
@@ -61,7 +58,6 @@ const tiers = [
       "Single-platform advertising",
       "Priority support",
     ],
-    cta: "Learn More",
     highlight: false,
   },
   {
@@ -77,136 +73,113 @@ const tiers = [
       "Monthly performance reporting",
       "Dedicated account contact",
     ],
-    cta: "Apply Now",
     highlight: false,
   },
 ];
 
 const steps = [
   {
-    num: "01",
-    title: "Discovery Call",
-    body: "30 minutes to map your practice's current gaps and confirm we're a fit.",
+    title: "Discovery call",
+    body: "30 minutes. We map your gaps — you decide if we're a fit.",
   },
   {
-    num: "02",
     title: "Configuration",
-    body: "We build your account, connect your phone number, and sync your calendar.",
+    body: "We set up your account and sync your calendar. No technical work on your end.",
   },
   {
-    num: "03",
-    title: "Go Live",
-    body: "Your care system launches — proven, pre-built, and running within days.",
+    title: "Go live",
+    body: "Pre-built, proven system. You're running within days, not weeks.",
   },
   {
-    num: "04",
-    title: "The Quiet Return",
+    title: "The quiet return",
     body: "No-shows drop. Missed calls convert. Dormant patients come back.",
   },
+];
+
+const values = [
+  {
+    title: "The care layer first",
+    body: "Don't pay to fill a leaky bucket. We plug the holes first — then help you grow.",
+  },
+  {
+    title: "Results tied to revenue",
+    body: "We report on recovered appointments and prevented no-shows. Not impressions. Not clicks.",
+  },
+];
+
+const marketStats = [
+  { value: "$9.3B", label: "US market size in 2026" },
+  { value: "11,000+", label: "Med spa locations in the US" },
+  { value: "15.2%", label: "Projected annual growth (CAGR)" },
 ];
 
 export default function HomePage() {
   return (
     <PageTransition>
       <>
-        {/* Hero */}
-        <section className="bg-[#160E3C] text-white min-h-[88vh] flex items-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,_#231660_0%,_transparent_70%)]" />
-          <div className="relative max-w-5xl mx-auto px-6 py-32 text-center w-full">
-            <div className="hero-badge inline-flex items-center gap-2 mb-10 px-4 py-1.5 rounded-full border border-[#9B8DFF]/25 text-[#9B8DFF] text-xs uppercase tracking-[0.2em]">
-              Patient Care Intelligence &nbsp;·&nbsp; Med Spa Growth
-            </div>
-            <h1 className="hero-headline font-serif text-4xl sm:text-5xl md:text-[4.5rem] font-normal leading-[1.1] mb-8 max-w-4xl mx-auto">
+        {/* ── Hero ────────────────────────────────────────── */}
+        <section id="home" className="bg-plum-deep text-white min-h-[90vh] flex items-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,_#2C2742_0%,_transparent_70%)]" />
+          <div className="relative max-w-4xl mx-auto px-6 py-32 text-center w-full">
+            <h1 className="hero-headline font-serif text-4xl sm:text-5xl md:text-[4.75rem] font-normal leading-[1.08] mb-8 max-w-3xl mx-auto">
               A practice that never lets{" "}
-              <span className="text-[#9B8DFF] italic">
+              <em className="text-rosewood not-italic">
                 a patient slip away
-              </span>
+              </em>
             </h1>
-            <p className="hero-body text-[#9E98C4] text-base sm:text-[17px] lg:text-[18px] max-w-xl mx-auto mb-12 leading-relaxed">
-              Delytica builds the invisible care layer your med spa deserves — the touchpoints, recoveries, and reactivations that protect revenue and deepen patient relationships, without adding to your day.
+            <p className="hero-body text-eggshell/60 text-base sm:text-[17px] lg:text-[18px] max-w-lg mx-auto mb-12 leading-relaxed">
+              Automated follow-ups, no-show prevention, and patient reactivation — running quietly so nothing falls through the cracks.
             </p>
             <div className="hero-ctas flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/booking"
-                className="bg-[#9B8DFF] text-white font-medium px-9 py-4 rounded-full hover:bg-white hover:text-[#160E3C] transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#160E3C]"
+                className="bg-rosewood text-white font-medium px-9 py-4 rounded-full hover:bg-rosewood-dark transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-plum-deep"
               >
-                Book a Free Discovery Call
+                Book a free discovery call
               </Link>
-              <Link
-                href="/pricing"
-                className="border border-white/20 text-white px-9 py-4 rounded-full hover:border-[#9B8DFF]/50 hover:text-[#9B8DFF] transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B8DFF]"
+              <a
+                href="#pricing"
+                className="border border-white/20 text-white px-9 py-4 rounded-full hover:border-rosewood/50 hover:text-rosewood transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood"
               >
-                View Pricing
-              </Link>
+                See pricing
+              </a>
             </div>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="border-b border-[#DDD8FF]">
+        {/* ── Stats ────────────────────────────────────────── */}
+        <section className="bg-eggshell border-b border-parchment">
           <FadeIn>
-            <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#DDD8FF] text-center">
+            <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-parchment text-center">
               {stats.map((s) => (
                 <div key={s.value} className="py-12 sm:px-12">
-                  <div className="font-serif text-4xl font-normal text-[#160E3C] mb-2">
+                  <div className="font-serif text-4xl font-normal text-plum-deep mb-2">
                     {s.value}
                   </div>
-                  <div className="text-[13px] text-[#9184C4] leading-relaxed">{s.label}</div>
+                  <div className="text-[13px] text-mist leading-relaxed">{s.label}</div>
                 </div>
               ))}
             </div>
           </FadeIn>
         </section>
 
-        {/* The Gap */}
-        <section className="max-w-5xl mx-auto px-6 py-16 md:py-28">
-          <FadeIn>
-            <div className="text-center mb-14 md:mb-20">
-              <p className="text-[#9184C4] text-xs uppercase tracking-[0.2em] mb-5">
-                The Gap
-              </p>
-              <h2 className="font-serif text-4xl sm:text-5xl font-normal leading-tight max-w-2xl mx-auto">
-                What quietly costs every med spa
-              </h2>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-            {gaps.map((g, i) => (
-              <FadeIn key={g.title} delay={i * 120}>
-                <div>
-                  <div className="text-[#9184C4] text-xs font-mono tracking-[0.15em] mb-6">
-                    {g.num}
-                  </div>
-                  <h3 className="font-medium text-[17px] mb-4 leading-snug">{g.title}</h3>
-                  <p className="text-[15px] lg:text-[17px] text-[#6B6898] leading-relaxed">{g.body}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </section>
-
-        {/* The Method */}
-        <section className="bg-[#F0EDFF] border-y border-[#DDD8FF] py-16 md:py-28">
+        {/* ── Services ─────────────────────────────────────── */}
+        <section id="services" className="bg-eggshell py-16 md:py-24">
           <div className="max-w-5xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-14 md:mb-20">
-                <p className="text-[#9184C4] text-xs uppercase tracking-[0.2em] mb-5">
-                  The Method
-                </p>
-                <h2 className="font-serif text-4xl sm:text-5xl font-normal">
-                  Inside your practice within days
+              <div className="mb-14">
+                <p className="font-serif italic text-mist text-sm mb-4">What quietly costs every practice</p>
+                <h2 className="font-serif text-4xl sm:text-5xl font-normal leading-tight max-w-2xl">
+                  Three gaps. Every med spa has them.
                 </h2>
               </div>
             </FadeIn>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-10">
-              {steps.map((s, i) => (
-                <FadeIn key={s.num} delay={i * 90}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+              {gaps.map((g, i) => (
+                <FadeIn key={g.title} delay={i * 100}>
                   <div>
-                    <div className="text-[#9184C4] text-xs font-mono tracking-[0.15em] mb-5">
-                      {s.num}
-                    </div>
-                    <h3 className="font-medium text-[15px] mb-3">{s.title}</h3>
-                    <p className="text-[14px] lg:text-[15px] text-[#6B6898] leading-relaxed">{s.body}</p>
+                    <h3 className="font-medium text-[17px] mb-3 leading-snug">{g.title}</h3>
+                    <p className="text-[15px] lg:text-[16px] text-ink/65 leading-relaxed">{g.body}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -214,46 +187,71 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* The Investment */}
-        <section className="bg-[#160E3C] text-white py-16 md:py-28">
+        {/* ── How it works ─────────────────────────────────── */}
+        <section className="bg-plum-mid text-white py-16 md:py-24">
+          <div className="max-w-5xl mx-auto px-6">
+            <FadeIn>
+              <div className="mb-12">
+                <p className="font-serif italic text-eggshell/40 text-sm mb-4">The process</p>
+                <h2 className="font-serif text-3xl sm:text-4xl font-normal">
+                  Live inside your practice in days
+                </h2>
+              </div>
+            </FadeIn>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12">
+              {steps.map((s, i) => (
+                <FadeIn key={s.title} delay={i * 80}>
+                  <div>
+                    <div className="text-rosewood/60 text-xs font-mono tracking-[0.15em] mb-4">
+                      0{i + 1}
+                    </div>
+                    <h3 className="font-medium text-[15px] mb-2.5 text-eggshell">{s.title}</h3>
+                    <p className="text-[14px] text-eggshell/50 leading-relaxed">{s.body}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Pricing ──────────────────────────────────────── */}
+        <section id="pricing" className="bg-plum-deep text-white py-16 md:py-28">
           <div className="max-w-5xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-14 md:mb-20">
-                <p className="text-[#9B8DFF] text-xs uppercase tracking-[0.2em] mb-5">
-                  The Investment
-                </p>
+                <p className="font-serif italic text-eggshell/40 text-sm mb-5">The investment</p>
                 <h2 className="font-serif text-4xl sm:text-5xl font-normal">
                   Transparent, scalable pricing
                 </h2>
-                <p className="text-[#9E98C4] text-[15px] lg:text-[17px] mt-4 max-w-sm mx-auto leading-relaxed">
+                <p className="text-eggshell/50 text-[15px] lg:text-[17px] mt-4 max-w-sm mx-auto leading-relaxed">
                   Start with the layer that proves itself. Build from there.
                 </p>
               </div>
             </FadeIn>
-            <FadeIn delay={120}>
+            <FadeIn delay={100}>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {tiers.map((tier) => (
                   <div
                     key={tier.name}
                     className={`rounded-2xl p-8 flex flex-col ${
                       tier.highlight
-                        ? "bg-[#6B5CE7] text-white"
+                        ? "bg-rosewood text-white ring-2 ring-rosewood"
                         : "bg-white/5 border border-white/10 text-white"
                     }`}
                   >
                     <div
-                      className={`text-xs uppercase tracking-[0.18em] mb-4 ${
-                        tier.highlight ? "text-white/60" : "text-[#9B8DFF]/70"
+                      className={`font-serif italic text-[12px] mb-3 ${
+                        tier.highlight ? "text-white/60" : "text-eggshell/40"
                       }`}
                     >
                       {tier.tag}
                     </div>
-                    <h3 className="font-medium text-[17px] mb-5">{tier.name}</h3>
+                    <h3 className="font-medium text-[16px] mb-5">{tier.name}</h3>
                     <div className="mb-7">
                       <span className="font-serif text-3xl font-normal">{tier.price}</span>
                       <span
-                        className={`text-[14px] ml-1 ${
-                          tier.highlight ? "text-white/60" : "text-white/40"
+                        className={`text-[13px] ml-1 ${
+                          tier.highlight ? "text-white/60" : "text-eggshell/35"
                         }`}
                       >
                         {tier.period}
@@ -263,13 +261,13 @@ export default function HomePage() {
                       {tier.features.map((f) => (
                         <li
                           key={f}
-                          className={`text-[14px] lg:text-[15px] flex items-start gap-3 ${
-                            tier.highlight ? "text-white/85" : "text-white/70"
+                          className={`text-[14px] flex items-start gap-3 ${
+                            tier.highlight ? "text-white/85" : "text-eggshell/65"
                           }`}
                         >
                           <span
                             className={`mt-0.5 text-[10px] flex-shrink-0 ${
-                              tier.highlight ? "text-white/50" : "text-[#9B8DFF]/60"
+                              tier.highlight ? "text-white/50" : "text-rosewood/60"
                             }`}
                           >
                             —
@@ -278,53 +276,118 @@ export default function HomePage() {
                         </li>
                       ))}
                     </ul>
+                    {tier.highlight ? (
+                      <p className="text-[11px] text-white/50 mb-5 leading-relaxed bg-white/10 rounded-xl px-4 py-3">
+                        30-day guarantee — targets missed, setup fee refunded. No estimates.
+                      </p>
+                    ) : null}
                     <Link
                       href="/booking"
-                      className={`text-center text-[14px] font-medium px-6 py-3 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                      className={`text-center text-[13px] font-medium px-6 py-3 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                         tier.highlight
-                          ? "bg-white text-[#6B5CE7] hover:bg-white/90"
-                          : "border border-white/20 text-white hover:border-[#9B8DFF] hover:text-[#9B8DFF]"
+                          ? "bg-white text-rosewood-dark hover:bg-eggshell"
+                          : "border border-white/20 text-white hover:border-rosewood hover:text-rosewood"
                       }`}
                     >
-                      {tier.cta}
+                      Book a discovery call
                     </Link>
                   </div>
                 ))}
               </div>
             </FadeIn>
-            <FadeIn delay={200}>
-              <div className="text-center mt-10">
-                <Link
-                  href="/pricing"
-                  className="text-[#9B8DFF]/70 text-[13px] tracking-wide hover:text-[#9B8DFF] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9B8DFF] rounded"
-                >
-                  Full pricing breakdown including multi-location plans →
-                </Link>
+            <FadeIn delay={180}>
+              <p className="text-center text-eggshell/30 text-[12px] mt-8">
+                Multi-location? Setup discounts scale with you.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── About ────────────────────────────────────────── */}
+        <section id="about" className="bg-eggshell py-16 md:py-28">
+          <div className="max-w-5xl mx-auto px-6">
+            <FadeIn>
+              <div className="mb-14">
+                <p className="font-serif italic text-mist text-sm mb-4">Who we are</p>
+                <h2 className="font-serif text-4xl sm:text-5xl font-normal leading-tight max-w-2xl">
+                  We built the agency we wished existed
+                </h2>
+              </div>
+            </FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-20">
+              <FadeIn>
+                <div>
+                  <p className="text-[15px] lg:text-[17px] text-ink/65 leading-relaxed mb-5">
+                    A $9.3B market growing at 15% annually — yet most practices still lose patients to unanswered calls, preventable no-shows, and cold patient lists. The gaps are structural and fixable.
+                  </p>
+                  <p className="text-[15px] lg:text-[17px] text-ink/65 leading-relaxed">
+                    We fix the foundation first and prove value within 30 days. When you&apos;re ready to grow, the infrastructure is already there.
+                  </p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <div className="space-y-8">
+                  {values.map((v) => (
+                    <div key={v.title}>
+                      <h3 className="font-medium text-[16px] mb-2">{v.title}</h3>
+                      <p className="text-[15px] text-ink/65 leading-relaxed">{v.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Market stats */}
+            <FadeIn>
+              <div className="border-t border-parchment pt-12 grid grid-cols-3 gap-4 max-w-md">
+                {marketStats.map((s) => (
+                  <div key={s.value}>
+                    <div className="font-serif text-3xl font-normal text-plum-deep mb-1.5">
+                      {s.value}
+                    </div>
+                    <div className="text-[12px] text-mist leading-relaxed">{s.label}</div>
+                  </div>
+                ))}
               </div>
             </FadeIn>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="max-w-3xl mx-auto px-6 py-20 md:py-32 text-center">
-          <FadeIn>
-            <p className="text-[#9184C4] text-xs uppercase tracking-[0.2em] mb-6">
-              Begin
-            </p>
-            <h2 className="font-serif text-4xl sm:text-5xl font-normal mb-6 leading-tight">
-              Ready to build a practice that remembers?
-            </h2>
-            <p className="text-[#6B6898] text-[15px] lg:text-[17px] mb-12 leading-relaxed max-w-sm mx-auto">
-              A free 30-minute call. No pitch. We&apos;ll map your practice&apos;s gaps and tell
-              you honestly what will move the needle — and what won&apos;t.
-            </p>
-            <Link
-              href="/booking"
-              className="inline-block bg-[#6B5CE7] text-white font-medium px-10 py-4 rounded-full hover:bg-[#5A4BD0] transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B5CE7] focus-visible:ring-offset-2"
-            >
-              Book Your Free Discovery Call
-            </Link>
-          </FadeIn>
+        {/* ── Contact ──────────────────────────────────────── */}
+        <section id="contact" className="bg-plum-mid text-white py-16 md:py-24">
+          <div className="max-w-5xl mx-auto px-6">
+            <FadeIn>
+              <div className="mb-12">
+                <p className="font-serif italic text-eggshell/40 text-sm mb-4">Get in touch</p>
+                <h2 className="font-serif text-4xl sm:text-5xl font-normal text-eggshell">Let&apos;s talk</h2>
+              </div>
+            </FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+              <FadeIn>
+                <div className="space-y-8">
+                  <div>
+                    <p className="text-[15px] lg:text-[17px] text-eggshell/60 leading-relaxed mb-6">
+                      30 minutes. No pitch. We&apos;ll tell you exactly what will move the needle — and what to skip.
+                    </p>
+                    <Link
+                      href="/booking"
+                      className="inline-block bg-rosewood text-white font-medium px-8 py-3.5 rounded-full hover:bg-rosewood-dark transition-colors text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood focus-visible:ring-offset-2 focus-visible:ring-offset-plum-mid"
+                    >
+                      Book a free discovery call
+                    </Link>
+                  </div>
+                  <div className="border-t border-plum-border pt-8">
+                    <p className="text-[13px] text-eggshell/35 mb-1">Or send a message directly</p>
+                    <p className="text-[15px] text-eggshell/80">hello@delytica.agency</p>
+                    <p className="text-[12px] text-eggshell/30 mt-1">Response within 24 business hours</p>
+                  </div>
+                </div>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <ContactForm dark />
+              </FadeIn>
+            </div>
+          </div>
         </section>
       </>
     </PageTransition>

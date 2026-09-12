@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const siteUrl = "https://luminamedspa.agency";
+const siteUrl = "https://delytica.agency";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

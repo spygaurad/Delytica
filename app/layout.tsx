@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = "https://luminamedspa.agency";
+const siteUrl = "https://delytica.agency";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -128,7 +128,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${playfair.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-[#160E3C]">
+      <body className="min-h-full flex flex-col bg-eggshell text-ink antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

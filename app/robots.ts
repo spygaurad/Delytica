@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://luminamedspa.agency/sitemap.xml",
+    sitemap: "https://delytica.agency/sitemap.xml",
   };
 }

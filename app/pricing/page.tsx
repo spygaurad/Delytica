@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Pricing",
   description:
     "Transparent pricing for med spa automation — from $297/month for Practice Essentials to full growth partnership. No long-term contracts. 30-day money-back guarantee.",
-  alternates: { canonical: "https://luminamedspa.agency/pricing" },
+  alternates: { canonical: "https://delytica.agency/pricing" },
 };
 
 const tiers = [
@@ -102,246 +102,216 @@ const faqs = [
 export default function PricingPage() {
   return (
     <PageTransition>
-    <>
-      {/* Header */}
-      <section className="bg-[#160E3C] text-white py-24">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-[#9B8DFF] text-xs uppercase tracking-[0.2em] mb-6">
-            The Investment
-          </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal mb-5">
-            Transparent pricing.<br className="hidden sm:block" /> No surprises.
-          </h1>
-          <p className="text-white/50 max-w-lg mx-auto text-[15px] lg:text-[17px] leading-relaxed">
-            Start with the layer that proves itself. Every tier is designed to
-            deliver measurable return before you commit to the next.
-          </p>
-        </div>
-      </section>
+      <>
+        <section className="bg-plum-deep text-white py-24">
+          <div className="max-w-5xl mx-auto px-6 text-center">
+            <p className="font-serif italic text-eggshell/40 text-sm mb-6">The investment</p>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal mb-5">
+              Transparent pricing.<br className="hidden sm:block" /> No surprises.
+            </h1>
+            <p className="text-eggshell/50 max-w-lg mx-auto text-[15px] lg:text-[17px] leading-relaxed">
+              Start with the layer that proves itself. Every tier is designed to
+              deliver measurable return before you commit to the next.
+            </p>
+          </div>
+        </section>
 
-      {/* Tier cards */}
-      <section className="max-w-5xl mx-auto px-6 py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`rounded-2xl flex flex-col ${
-                tier.highlight
-                  ? "bg-[#160E3C] text-white ring-2 ring-[#9B8DFF]"
-                  : "bg-white border border-[#DDD8FF] text-[#160E3C]"
-              }`}
-            >
-              {/* Card top */}
+        <section className="max-w-5xl mx-auto px-6 py-14 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {tiers.map((tier) => (
               <div
-                className={`px-7 py-6 border-b ${
-                  tier.highlight ? "border-white/10" : "border-[#DDD8FF]"
+                key={tier.name}
+                className={`rounded-2xl flex flex-col ${
+                  tier.highlight
+                    ? "bg-plum-deep text-white ring-2 ring-rosewood"
+                    : "bg-white border border-parchment text-ink"
                 }`}
               >
                 <div
-                  className={`text-xs uppercase tracking-[0.18em] mb-3 ${
-                    tier.highlight ? "text-[#9B8DFF]/80" : "text-[#9184C4]"
+                  className={`px-7 py-6 border-b ${
+                    tier.highlight ? "border-white/10" : "border-parchment"
                   }`}
                 >
-                  {tier.badge}
-                </div>
-                <h2 className="font-medium text-[17px] mb-4">{tier.name}</h2>
-                <div>
-                  <span className="font-serif text-4xl font-normal">{tier.price}</span>
-                  <span
-                    className={`text-[14px] ml-1.5 ${
-                      tier.highlight ? "text-white/40" : "text-[#9184C4]"
-                    }`}
-                  >
-                    {tier.period}
-                  </span>
-                </div>
-                {tier.setup ? (
                   <div
-                    className={`text-[12px] mt-1.5 ${
-                      tier.highlight ? "text-white/40" : "text-[#9184C4]"
+                    className={`font-serif italic text-[12px] mb-3 ${
+                      tier.highlight ? "text-eggshell/40" : "text-mist"
                     }`}
                   >
-                    {tier.setup}
+                    {tier.badge}
                   </div>
-                ) : null}
-              </div>
-
-              {/* Features */}
-              <div className="px-7 py-6 flex-1">
-                {tier.setupNote ? (
-                  <div
-                    className={`text-[12px] rounded-xl px-4 py-3 mb-5 leading-relaxed ${
-                      tier.highlight
-                        ? "bg-white/8 text-white/60"
-                        : "bg-[#FFFFFF] text-[#9184C4] border border-[#DDD8FF]"
-                    }`}
-                  >
-                    {tier.setupNote}
-                  </div>
-                ) : null}
-                <ul className="space-y-3">
-                  {tier.features.map((f) => (
-                    <li
-                      key={f}
-                      className={`text-[14px] lg:text-[15px] flex items-start gap-3 ${
-                        tier.highlight ? "text-white/75" : "text-[#4A3F6E]"
+                  <h2 className="font-medium text-[17px] mb-4">{tier.name}</h2>
+                  <div>
+                    <span className="font-serif text-4xl font-normal">{tier.price}</span>
+                    <span
+                      className={`text-[14px] ml-1.5 ${
+                        tier.highlight ? "text-eggshell/40" : "text-mist"
                       }`}
                     >
-                      <span
-                        className={`mt-0.5 text-[10px] flex-shrink-0 ${
-                          tier.highlight ? "text-[#9B8DFF]/70" : "text-[#9184C4]"
+                      {tier.period}
+                    </span>
+                  </div>
+                  {tier.setup ? (
+                    <div
+                      className={`text-[12px] mt-1.5 ${
+                        tier.highlight ? "text-eggshell/40" : "text-mist"
+                      }`}
+                    >
+                      {tier.setup}
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="px-7 py-6 flex-1">
+                  {tier.setupNote ? (
+                    <div
+                      className={`text-[12px] rounded-xl px-4 py-3 mb-5 leading-relaxed ${
+                        tier.highlight
+                          ? "bg-white/8 text-eggshell/55"
+                          : "bg-eggshell text-mist border border-parchment"
+                      }`}
+                    >
+                      {tier.setupNote}
+                    </div>
+                  ) : null}
+                  <ul className="space-y-3">
+                    {tier.features.map((f) => (
+                      <li
+                        key={f}
+                        className={`text-[14px] lg:text-[15px] flex items-start gap-3 ${
+                          tier.highlight ? "text-eggshell/75" : "text-ink/70"
                         }`}
                       >
-                        —
-                      </span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                        <span
+                          className={`mt-0.5 text-[10px] flex-shrink-0 ${
+                            tier.highlight ? "text-rosewood/70" : "text-mist"
+                          }`}
+                        >
+                          —
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* CTA + guarantee */}
-              <div className="px-7 pb-7">
-                {tier.guarantee ? (
-                  <div
-                    className={`text-[12px] rounded-xl px-4 py-3 mb-5 leading-relaxed ${
-                      tier.highlight
-                        ? "bg-white/8 text-white/50"
-                        : "bg-[#FFFFFF] text-[#9184C4] border border-[#DDD8FF]"
-                    }`}
-                  >
-                    {tier.guarantee}
-                  </div>
-                ) : null}
-                <Link
-                  href="/booking"
-                  className={`block text-center text-[14px] font-medium px-6 py-3.5 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 ${
-                    tier.highlight
-                      ? "bg-[#9B8DFF] text-white hover:bg-white hover:text-[#160E3C] focus-visible:ring-white"
-                      : "bg-[#6B5CE7] text-white hover:bg-[#5A4BD0] focus-visible:ring-[#6B5CE7]"
-                  }`}
-                >
-                  Book a Discovery Call
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Multi-location — integrated, light section */}
-      <section className="border-t border-[#DDD8FF] bg-[#FFFFFF]">
-        <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Left: explanation */}
-            <div>
-              <p className="text-[#9184C4] text-xs uppercase tracking-[0.2em] mb-5">
-                Multiple locations
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-snug">
-                Volume pricing for multi-location brands
-              </h2>
-              <p className="text-[15px] lg:text-[17px] text-[#6B6898] leading-relaxed mb-4">
-                The underlying infrastructure cost doesn&apos;t increase with each
-                location — so multi-location practices get disproportionate
-                value from the same system.
-              </p>
-              <p className="text-[15px] lg:text-[17px] text-[#6B6898] leading-relaxed mb-8">
-                Setup discounts scale with your footprint. Monthly rates stay
-                close to list because the value delivered at each location
-                doesn&apos;t shrink with scale. One consolidated invoice,
-                itemized per location.
-              </p>
-              <Link
-                href="/booking"
-                className="inline-block bg-[#6B5CE7] text-white font-medium px-8 py-3.5 rounded-full hover:bg-[#5A4BD0] transition-colors text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6B5CE7] focus-visible:ring-offset-2"
-              >
-                Discuss Your Footprint
-              </Link>
-            </div>
-
-            {/* Right: table */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-[14px] min-w-[340px]">
-                <thead>
-                  <tr className="border-b-2 border-[#DDD8FF] text-left">
-                    <th className="pb-3 font-medium text-[11px] uppercase tracking-[0.15em] text-[#9184C4]">
-                      Locations
-                    </th>
-                    <th className="pb-3 font-medium text-[11px] uppercase tracking-[0.15em] text-[#9184C4] text-right">
-                      Setup
-                    </th>
-                    <th className="pb-3 font-medium text-[11px] uppercase tracking-[0.15em] text-[#9184C4] text-right">
-                      Monthly
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {multiLocation.map((row, i) => (
-                    <tr
-                      key={row.range}
-                      className={`border-b border-[#DDD8FF] ${
-                        i === 0 ? "bg-[#F0EDFF]/60" : ""
+                <div className="px-7 pb-7">
+                  {tier.guarantee ? (
+                    <div
+                      className={`text-[12px] rounded-xl px-4 py-3 mb-5 leading-relaxed ${
+                        tier.highlight
+                          ? "bg-white/8 text-eggshell/50"
+                          : "bg-eggshell text-mist border border-parchment"
                       }`}
                     >
-                      <td className="py-4 text-[#160E3C] font-medium">
-                        {row.range}
-                      </td>
-                      <td className="py-4 text-[#6B6898] text-right">
-                        {row.setup}
-                      </td>
-                      <td className="py-4 text-[#6B6898] text-right">
-                        {row.monthly}
-                      </td>
+                      {tier.guarantee}
+                    </div>
+                  ) : null}
+                  <Link
+                    href="/booking"
+                    className={`block text-center text-[14px] font-medium px-6 py-3.5 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 ${
+                      tier.highlight
+                        ? "bg-rosewood text-white hover:bg-rosewood-dark focus-visible:ring-rosewood"
+                        : "bg-rosewood text-white hover:bg-rosewood-dark focus-visible:ring-rosewood"
+                    }`}
+                  >
+                    Book a discovery call
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="border-t border-parchment bg-eggshell">
+          <div className="max-w-5xl mx-auto px-6 py-14 md:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+              <div>
+                <p className="font-serif italic text-mist text-sm mb-5">Multiple locations</p>
+                <h2 className="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-snug">
+                  Volume pricing for multi-location brands
+                </h2>
+                <p className="text-[15px] lg:text-[17px] text-ink/65 leading-relaxed mb-4">
+                  The underlying infrastructure cost doesn&apos;t increase with each
+                  location — so multi-location practices get disproportionate
+                  value from the same system.
+                </p>
+                <p className="text-[15px] lg:text-[17px] text-ink/65 leading-relaxed mb-8">
+                  Setup discounts scale with your footprint. Monthly rates stay
+                  close to list. One consolidated invoice, itemized per location.
+                </p>
+                <Link
+                  href="/booking"
+                  className="inline-block bg-rosewood text-white font-medium px-8 py-3.5 rounded-full hover:bg-rosewood-dark transition-colors text-[15px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood focus-visible:ring-offset-2"
+                >
+                  Discuss your footprint
+                </Link>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-[14px] min-w-[340px]">
+                  <thead>
+                    <tr className="border-b-2 border-parchment text-left">
+                      <th className="pb-3 font-medium text-[11px] tracking-[0.12em] text-mist">Locations</th>
+                      <th className="pb-3 font-medium text-[11px] tracking-[0.12em] text-mist text-right">Setup</th>
+                      <th className="pb-3 font-medium text-[11px] tracking-[0.12em] text-mist text-right">Monthly</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="text-[12px] text-[#9184C4] mt-4 leading-relaxed">
-                Volume rates are negotiated privately. List price remains $297/month flat for single-location clients.
-              </p>
+                  </thead>
+                  <tbody>
+                    {multiLocation.map((row, i) => (
+                      <tr
+                        key={row.range}
+                        className={`border-b border-parchment ${
+                          i === 0 ? "bg-rosewood/8" : ""
+                        }`}
+                      >
+                        <td className="py-4 text-ink font-medium">{row.range}</td>
+                        <td className="py-4 text-ink/60 text-right">{row.setup}</td>
+                        <td className="py-4 text-ink/60 text-right">{row.monthly}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p className="text-[12px] text-mist mt-4 leading-relaxed">
+                  Volume rates are negotiated privately. List price remains $297/month flat for single-location clients.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <h2 className="font-serif text-3xl sm:text-4xl font-normal text-center mb-12">
-          Pricing questions
-        </h2>
-        <div className="space-y-px">
-          {faqs.map((item) => (
-            <div key={item.q} className="border-b border-[#DDD8FF] py-7">
-              <h3 className="font-medium text-[16px] mb-3">{item.q}</h3>
-              <p className="text-[15px] lg:text-[17px] text-[#6B6898] leading-relaxed">{item.a}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#160E3C] text-white">
-        <div className="max-w-3xl mx-auto px-6 py-20 md:py-24 text-center">
-          <p className="text-[#9B8DFF] text-xs uppercase tracking-[0.2em] mb-6">
-            Get started
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-snug">
-            Not sure which tier fits?
+        <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-center mb-12">
+            Pricing questions
           </h2>
-          <p className="text-white/50 text-[15px] lg:text-[17px] mb-10 leading-relaxed max-w-sm mx-auto">
-            Book a free call. We&apos;ll tell you honestly where you&apos;ll see
-            the most return first — and what to skip for now.
-          </p>
-          <Link
-            href="/booking"
-            className="inline-block bg-[#9B8DFF] text-white font-medium px-10 py-4 rounded-full hover:bg-white hover:text-[#160E3C] transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#160E3C]"
-          >
-            Book a Free Discovery Call
-          </Link>
-        </div>
-      </section>
-    </>
+          <div className="space-y-px">
+            {faqs.map((item) => (
+              <div key={item.q} className="border-b border-parchment py-7">
+                <h3 className="font-medium text-[16px] mb-3">{item.q}</h3>
+                <p className="text-[15px] lg:text-[17px] text-ink/65 leading-relaxed">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-plum-deep text-white">
+          <div className="max-w-3xl mx-auto px-6 py-20 md:py-24 text-center">
+            <p className="font-serif italic text-eggshell/40 text-sm mb-6">Get started</p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal mb-5 leading-snug">
+              Not sure which tier fits?
+            </h2>
+            <p className="text-eggshell/50 text-[15px] lg:text-[17px] mb-10 leading-relaxed max-w-sm mx-auto">
+              Book a free call. We&apos;ll tell you honestly where you&apos;ll see
+              the most return first — and what to skip for now.
+            </p>
+            <Link
+              href="/booking"
+              className="inline-block bg-rosewood text-white font-medium px-10 py-4 rounded-full hover:bg-rosewood-dark transition-colors text-[15px] tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-plum-deep"
+            >
+              Book a free discovery call
+            </Link>
+          </div>
+        </section>
+      </>
     </PageTransition>
   );
 }

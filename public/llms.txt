@@ -57,18 +57,21 @@ The US med spa market is estimated at $9.3B in 2026, projected to reach $33.2B b
 
 - 17–22%: average no-show rate in practices without a care sequence
 - 37%: first-visit patients who never return without follow-up
-- ~3 clients: number needed to recover the full cost of the Foundation tier
+- ~3 clients: number needed to recover the full cost of Practice Essentials
 
 ## Contact
 
-- Email: hello@luminamedspa.agency
-- Book a free 30-minute discovery call: https://luminamedspa.agency/booking
+- Email: hello@delytica.agency
+- Book a free 30-minute discovery call: https://delytica.agency/booking
 
 ## Pages
 
-- Home: https://luminamedspa.agency
-- Services: https://luminamedspa.agency/services
-- Pricing: https://luminamedspa.agency/pricing
-- About: https://luminamedspa.agency/about
-- Contact: https://luminamedspa.agency/contact
-- Book a Call: https://luminamedspa.agency/booking
+- Home (all sections): https://delytica.agency
+- Services section: https://delytica.agency/#services
+- Pricing section: https://delytica.agency/#pricing
+- About section: https://delytica.agency/#about
+- Contact section: https://delytica.agency/#contact
+- Book a Call: https://delytica.agency/booking
+- Full services detail: https://delytica.agency/services
+- Full pricing detail: https://delytica.agency/pricing
+- About page: https://delytica.agency/about
