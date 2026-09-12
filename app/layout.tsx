@@ -59,9 +59,9 @@ export const metadata: Metadata = {
       "Done-for-you automation that eliminates no-shows, recovers missed calls, and reactivates dormant patients for med spas.",
     images: [
       {
-        url: "/images/delytica_logo.png",
-        width: 2000,
-        height: 2000,
+        url: "/images/delytica_fb.png",
+        width: 1200,
+        height: 1200,
         alt: "Delytica MedSpa Growth Agency",
       },
     ],
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Delytica | MedSpa AI & Growth Agency",
     description:
       "Done-for-you automation that eliminates no-shows, recovers missed calls, and reactivates dormant patients for med spas.",
-    images: ["/images/delytica_logo.png"],
+    images: ["/images/delytica_fb.png"],
   },
   robots: {
     index: true,
