@@ -90,7 +90,7 @@ const jsonLd = {
   description:
     "Done-for-you AI automation and growth marketing agency for med spas and aesthetic medicine practices.",
   url: siteUrl,
-  email: "hello@delytica.agency",
+  email: "contact@delytica.com",
   areaServed: "US",
   serviceType: [
     "MedSpa Marketing Automation",

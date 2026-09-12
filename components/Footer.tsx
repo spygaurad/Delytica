@@ -58,7 +58,7 @@ export default function Footer() {
           <h4 className="font-serif italic text-[13px] text-eggshell/40 mb-6">
             Get in touch
           </h4>
-          <p className="text-[15px] text-eggshell/50 mb-1">hello@delytica.agency</p>
+          <p className="text-[15px] text-eggshell/50 mb-1">contact@delytica.com</p>
           <p className="text-[13px] text-eggshell/25 mb-8">Response within 24 business hours</p>
           <Link
             href="/booking"

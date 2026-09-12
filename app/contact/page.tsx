@@ -41,7 +41,7 @@ export default function ContactPage() {
             <div className="space-y-8 mb-14">
               <div>
                 <p className="font-serif italic text-mist text-[12px] mb-2">Email</p>
-                <p className="text-[15px] text-ink">hello@delytica.agency</p>
+                <p className="text-[15px] text-ink">contact@delytica.com</p>
                 <p className="text-xs text-mist mt-1">Response within 24 business hours</p>
               </div>
               <div>

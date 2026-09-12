@@ -378,7 +378,7 @@ export default function HomePage() {
                   </div>
                   <div className="border-t border-plum-border pt-8">
                     <p className="text-[13px] text-eggshell/35 mb-1">Or send a message directly</p>
-                    <p className="text-[15px] text-eggshell/80">hello@delytica.agency</p>
+                    <p className="text-[15px] text-eggshell/80">contact@delytica.com</p>
                     <p className="text-[12px] text-eggshell/30 mt-1">Response within 24 business hours</p>
                   </div>
                 </div>
