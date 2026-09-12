@@ -35,6 +35,7 @@ const tiers = [
     price: "$297",
     period: "/month",
     tag: "Where every practice starts",
+    guarantee: "Miss your target, get your setup fee back.",
     features: [
       "Instant patient response",
       "Appointment care sequences",
@@ -42,6 +43,7 @@ const tiers = [
       "Reputation cultivation",
       "Patient reactivation",
       "Unified patient communications",
+      "HIPAA-eligible infrastructure",
     ],
     highlight: true,
   },
@@ -50,12 +52,16 @@ const tiers = [
     price: "$697–$1,200",
     period: "/month",
     tag: "Fill your calendar",
+    guarantee: "Miss your target, get your setup fee back.",
     features: [
       "Everything in Essentials",
       "Rebooking sequences",
       "Membership growth campaigns",
       "8–12 social posts/month",
       "Single-platform advertising",
+      "Website SEO optimization",
+      "Google Business Profile optimization",
+      "HIPAA compliance & BAA contract",
       "Priority support",
     ],
     highlight: false,
@@ -65,6 +71,7 @@ const tiers = [
     price: "$1,800–$3,500",
     period: "/month",
     tag: "Your outsourced growth team",
+    guarantee: "Miss your target, get your setup fee back.",
     features: [
       "Everything in Growth",
       "Meta + Google advertising",
@@ -72,6 +79,7 @@ const tiers = [
       "Booking funnel optimization",
       "Monthly performance reporting",
       "Dedicated account contact",
+      "HIPAA compliance & BAA contract",
     ],
     highlight: false,
   },
@@ -241,20 +249,36 @@ export default function HomePage() {
                   >
                     <div
                       className={`font-serif italic text-[12px] mb-3 ${
-                        tier.highlight ? "text-white/60" : "text-eggshell/40"
+                        tier.highlight ? "text-white/75" : "text-eggshell/55"
                       }`}
                     >
                       {tier.tag}
                     </div>
                     <h3 className="font-medium text-[16px] mb-5">{tier.name}</h3>
-                    <div className="mb-7">
+                    <div className="mb-3">
                       <span className="font-serif text-3xl font-normal">{tier.price}</span>
                       <span
                         className={`text-[13px] ml-1 ${
-                          tier.highlight ? "text-white/60" : "text-eggshell/35"
+                          tier.highlight ? "text-white/70" : "text-eggshell/55"
                         }`}
                       >
                         {tier.period}
+                      </span>
+                    </div>
+                    <div
+                      className={`text-[12px] mb-5 flex flex-wrap items-center gap-2 ${
+                        tier.highlight ? "text-white/70" : "text-eggshell/60"
+                      }`}
+                    >
+                      <span className="line-through">$497 one-time setup</span>
+                      <span
+                        className={`text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full ${
+                          tier.highlight
+                            ? "bg-white text-rosewood-dark"
+                            : "bg-rosewood text-white"
+                        }`}
+                      >
+                        Waived
                       </span>
                     </div>
                     <ul className="space-y-3 mb-8 flex-1">
@@ -262,12 +286,12 @@ export default function HomePage() {
                         <li
                           key={f}
                           className={`text-[14px] flex items-start gap-3 ${
-                            tier.highlight ? "text-white/85" : "text-eggshell/65"
+                            tier.highlight ? "text-white/90" : "text-eggshell/80"
                           }`}
                         >
                           <span
                             className={`mt-0.5 text-[10px] flex-shrink-0 ${
-                              tier.highlight ? "text-white/50" : "text-rosewood/60"
+                              tier.highlight ? "text-white/60" : "text-rosewood"
                             }`}
                           >
                             —
@@ -276,10 +300,26 @@ export default function HomePage() {
                         </li>
                       ))}
                     </ul>
-                    {tier.highlight ? (
-                      <p className="text-[11px] text-white/50 mb-5 leading-relaxed bg-white/10 rounded-xl px-4 py-3">
-                        30-day guarantee — targets missed, setup fee refunded. No estimates.
-                      </p>
+                    {tier.guarantee ? (
+                      <div
+                        className={`flex items-center gap-2.5 rounded-xl px-4 py-3 mb-5 border ${
+                          tier.highlight
+                            ? "bg-white/12 border-white/25 text-white/95"
+                            : "bg-rosewood/10 border-rosewood/40 text-eggshell/90"
+                        }`}
+                      >
+                        <span
+                          className={`inline-flex items-center gap-1 flex-shrink-0 font-bold text-[10px] tracking-wide uppercase px-2 py-1 rounded-full ${
+                            tier.highlight
+                              ? "bg-white text-rosewood-dark"
+                              : "bg-rosewood text-white"
+                          }`}
+                        >
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          30-Day
+                        </span>
+                        <p className="text-[12.5px] leading-relaxed">{tier.guarantee}</p>
+                      </div>
                     ) : null}
                     <Link
                       href="/booking"
