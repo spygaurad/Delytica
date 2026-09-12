@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = "https://delytica.agency";
+const siteUrl = "https://delytica.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
