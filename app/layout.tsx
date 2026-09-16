@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,32 +10,24 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
-
 const siteUrl = "https://delytica.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Delytica | MedSpa AI & Growth Agency",
+    default: "Delytica | Continuity Growth for Medspas",
     template: "%s | Delytica",
   },
   description:
-    "Delytica helps med spas eliminate no-shows, automate follow-ups, and fill their calendars with done-for-you AI automation and growth marketing.",
+    "Delytica builds high-LTV patient acquisition and membership funnels for medspas.",
   keywords: [
     "med spa marketing",
-    "med spa automation",
     "medspa growth agency",
-    "no-show reduction",
-    "patient retention",
-    "aesthetic medicine marketing",
-    "HIPAA automation",
-    "GoHighLevel medspa",
+    "patient acquisition",
+    "GLP-1 marketing",
+    "HRT marketing",
+    "medspa memberships",
+    "patient continuity",
   ],
   icons: {
     icon: [
@@ -54,9 +46,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Delytica MedSpa Growth Agency",
-    title: "Delytica | MedSpa AI & Growth Agency",
+    title: "Delytica | Continuity Growth for Medspas",
     description:
-      "Done-for-you automation that eliminates no-shows, recovers missed calls, and reactivates dormant patients for med spas.",
+      "High-LTV patient acquisition and continuity systems for medspas.",
     images: [
       {
         url: "/images/delytica_fb.png",
@@ -68,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Delytica | MedSpa AI & Growth Agency",
+    title: "Delytica | Continuity Growth for Medspas",
     description:
-      "Done-for-you automation that eliminates no-shows, recovers missed calls, and reactivates dormant patients for med spas.",
+      "High-LTV patient acquisition and continuity systems for medspas.",
     images: ["/images/delytica_fb.png"],
   },
   robots: {
@@ -86,36 +78,35 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Delytica MedSpa Growth Agency",
+  name: "Delytica Continuity Growth",
   description:
-    "Done-for-you AI automation and growth marketing agency for med spas and aesthetic medicine practices.",
+    "High-LTV patient acquisition and continuity systems for med spas and aesthetic medicine practices.",
   url: siteUrl,
   email: "contact@delytica.com",
   areaServed: "US",
   serviceType: [
-    "MedSpa Marketing Automation",
-    "Patient Retention Systems",
-    "No-Show Reduction",
-    "Reputation Management",
-    "Digital Advertising",
+    "High-LTV Patient Acquisition",
+    "Membership Program Growth",
+    "Pre-Consultation Qualification",
+    "Continuity Campaigns",
   ],
   offers: [
     {
       "@type": "Offer",
-      name: "Practice Essentials",
-      price: "297",
+      name: "Core Patient Acquisition and Practice Visibility",
+      price: "2500",
       priceCurrency: "USD",
     },
     {
       "@type": "Offer",
-      name: "Practice Growth",
-      price: "697",
+      name: "High-LTV Care Continuity and Membership Program",
+      price: "4500",
       priceCurrency: "USD",
     },
     {
       "@type": "Offer",
-      name: "Full Partnership",
-      price: "1800",
+      name: "High-LTV Care Continuity and Membership Program",
+      price: "5000",
       priceCurrency: "USD",
     },
   ],
@@ -127,8 +118,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${playfair.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-eggshell text-ink antialiased">
+    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-paper text-graphite antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

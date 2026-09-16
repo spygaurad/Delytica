@@ -3,137 +3,47 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const initialForm = {
-  name: "",
-  email: "",
-  practice: "",
-  locations: "1",
-  message: "",
-};
+const initialForm = { name: "", email: "", practice: "", message: "" };
 
-export default function ContactForm({ dark = false }: { dark?: boolean }) {
+export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState(initialForm);
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
   if (submitted) {
     return (
-      <div className={`min-h-[320px] flex flex-col items-center justify-center text-center p-10 rounded-2xl border ${
-        dark ? "bg-white/5 border-white/10" : "bg-white border-parchment"
-      }`}>
-        <div className={`w-10 h-10 rounded-full border flex items-center justify-center mb-5 ${
-          dark ? "border-rosewood text-rosewood" : "border-rosewood text-rosewood"
-        }`}>
-          ✓
-        </div>
-        <h3 className={`font-serif text-xl font-normal mb-2 ${dark ? "text-eggshell" : "text-ink"}`}>
-          Message sent
-        </h3>
-        <p className={`text-[15px] leading-relaxed max-w-xs ${dark ? "text-eggshell/50" : "text-mist"}`}>
-          We respond within 24 hours. Or{" "}
-          <Link href="/booking" className="text-rosewood hover:underline">
-            book a call directly
-          </Link>
-          .
-        </p>
+      <div className="flex min-h-[320px] flex-col items-center justify-center rounded-[36px] border border-cloud bg-white p-10 text-center">
+        <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-ember text-ember">✓</div>
+        <h3 className="text-2xl font-semibold tracking-[-0.03em] text-obsidian">Message sent</h3>
+        <p className="mt-3 max-w-xs text-sm leading-relaxed text-fog">We respond within 24 hours. Or <Link href="/booking" className="text-ember hover:underline">request an audit</Link>.</p>
       </div>
     );
   }
 
-  const fieldClass = dark
-    ? "w-full border border-white/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white/8 text-eggshell placeholder:text-eggshell/30"
-    : "w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-eggshell/60 text-ink placeholder:text-mist/60";
-
-  const labelClass = dark ? "block text-xs font-medium mb-1.5 text-eggshell/40" : "block text-xs font-medium mb-1.5 text-mist";
+  function updateField(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`space-y-4 rounded-2xl p-8 border ${
-        dark ? "bg-white/5 border-white/10" : "bg-white border-parchment"
-      }`}
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className={labelClass}>Your name</label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={form.name}
-            onChange={handleChange}
-            className={fieldClass}
-            placeholder="Jane Smith"
-          />
-        </div>
-        <div>
-          <label className={labelClass}>Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={form.email}
-            onChange={handleChange}
-            className={fieldClass}
-            placeholder="jane@yourmedspa.com"
-          />
-        </div>
+    <form onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }} className="space-y-4 rounded-[36px] border border-cloud bg-white p-8">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Field label="Your name" name="name" value={form.name} onChange={updateField} required placeholder="Jane Smith" />
+        <Field label="Email" name="email" type="email" value={form.email} onChange={updateField} required placeholder="jane@yourmedspa.com" />
+        <Field label="Practice name" name="practice" value={form.practice} onChange={updateField} placeholder="Glow Medical Aesthetics" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className={labelClass}>Practice name</label>
-          <input
-            type="text"
-            name="practice"
-            value={form.practice}
-            onChange={handleChange}
-            className={fieldClass}
-            placeholder="Glow Medical Aesthetics"
-          />
-        </div>
-        <div>
-          <label className={labelClass}>Locations</label>
-          <select
-            name="locations"
-            value={form.locations}
-            onChange={handleChange}
-            className={fieldClass}
-          >
-            <option value="1">1 location</option>
-            <option value="2-4">2–4 locations</option>
-            <option value="5-9">5–9 locations</option>
-            <option value="10+">10+ locations</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <label className={labelClass}>Message</label>
-        <textarea
-          name="message"
-          required
-          rows={4}
-          value={form.message}
-          onChange={handleChange}
-          className={`${fieldClass} resize-none`}
-          placeholder="Current challenges, which tier you're considering, or anything else."
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-rosewood text-white text-sm font-medium py-3.5 rounded-full hover:bg-rosewood-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood focus-visible:ring-offset-2 focus-visible:ring-offset-plum-mid"
-      >
-        Send message
-      </button>
+      <label className="block text-sm font-medium text-iron">
+        Message
+        <textarea name="message" required rows={4} value={form.message} onChange={updateField} className="mt-2 w-full resize-none rounded-[14px] border border-cloud bg-white px-4 py-3 text-sm text-graphite outline-none transition placeholder:text-ash focus:border-ember focus:ring-2 focus:ring-orange-100" placeholder="Current challenges, care plans, or growth goals." />
+      </label>
+      <button type="submit" className="w-full rounded-[14px] bg-obsidian py-3.5 text-sm font-semibold text-white transition hover:bg-graphite">Send message</button>
     </form>
+  );
+}
+
+function Field({ label, name, value, onChange, type = "text", placeholder, required = false }: { label: string; name: string; value: string; onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; type?: string; placeholder: string; required?: boolean }) {
+  return (
+    <label className="block text-sm font-medium text-iron">
+      {label}{required ? " *" : ""}
+      <input type={type} name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} className="mt-2 w-full rounded-[14px] border border-cloud bg-white px-4 py-3 text-sm text-graphite outline-none transition placeholder:text-ash focus:border-ember focus:ring-2 focus:ring-orange-100" />
+    </label>
   );
 }

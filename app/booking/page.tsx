@@ -4,29 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import PageTransition from "@/components/PageTransition";
 
-const timeSlots = [
-  "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM",
-  "11:00 AM", "1:00 PM", "1:30 PM", "2:00 PM",
-  "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM",
-];
+const timeSlots = ["9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM"];
 
-const tierLabels: Record<string, string> = {
-  tier1: "Practice Essentials ($297/mo)",
-  tier2: "Practice Growth ($697–$1,200/mo)",
-  tier3: "Full Partnership ($1,800–$3,500/mo)",
-  unsure: "Not sure yet — want guidance",
-};
-
-const initialForm = {
-  name: "",
-  email: "",
-  phone: "",
-  practice: "",
-  locations: "1",
-  tier: "tier1",
-  referral: "",
-  notes: "",
-};
+const initialForm = { name: "", email: "", phone: "", practice: "", notes: "" };
 
 export default function BookingPage() {
   const [step, setStep] = useState(1);
@@ -34,44 +14,20 @@ export default function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState(initialForm);
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitted(true);
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
   }
 
   if (submitted) {
     return (
       <PageTransition>
-        <section className="min-h-[75vh] flex items-center justify-center px-6">
+        <section className="flex min-h-[75vh] items-center justify-center px-6">
           <div className="max-w-md text-center">
-            <div className="w-14 h-14 rounded-full border border-rosewood flex items-center justify-center text-rosewood mx-auto mb-8 text-xl">
-              ✓
-            </div>
-            <h1 className="font-serif text-3xl font-normal mb-3">You&apos;re booked</h1>
-            <p className="text-sm text-ink/60 leading-relaxed mb-1">
-              We&apos;ll send a calendar invite to{" "}
-              <strong className="text-ink">{form.email}</strong>.
-            </p>
-            <p className="text-sm text-ink/60 leading-relaxed mb-10">
-              Time: <strong className="text-ink">{selectedTime}</strong> &nbsp;·&nbsp; Interest:{" "}
-              <strong className="text-ink">{tierLabels[form.tier]}</strong>
-            </p>
-            <p className="text-xs text-mist mb-8 leading-relaxed">
-              While you wait — if you know another med spa owner who could use
-              this, a referral means their setup fee is waived.
-            </p>
-            <Link
-              href="/"
-              className="inline-block bg-rosewood text-white text-sm px-8 py-3.5 rounded-full hover:bg-rosewood-dark transition-colors"
-            >
-              Back to home
-            </Link>
+            <div className="mx-auto mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-ember text-xl text-ember">✓</div>
+            <h1 className="text-4xl font-semibold tracking-[-0.04em] text-obsidian">You&apos;re booked.</h1>
+            <p className="mt-4 text-sm leading-relaxed text-iron">We&apos;ll send a calendar invite to <strong className="text-graphite">{form.email}</strong>.</p>
+            <p className="mt-2 text-sm leading-relaxed text-iron">Time: <strong className="text-graphite">{selectedTime}</strong></p>
+            <Link href="/" className="mt-10 inline-flex rounded-[14px] bg-obsidian px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-graphite">Back to home</Link>
           </div>
         </section>
       </PageTransition>
@@ -80,209 +36,66 @@ export default function BookingPage() {
 
   return (
     <PageTransition>
-      <>
-        <section className="bg-plum-deep text-white py-20">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <p className="font-serif italic text-eggshell/40 text-sm mb-6">Book a call</p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-normal mb-4">
-              Free 30-minute discovery call
-            </h1>
-            <p className="text-eggshell/50 text-sm max-w-md mx-auto leading-relaxed">
-              No pitch, no pressure. We&apos;ll map your current gaps and tell you
-              honestly which tier — if any — is the right fit.
-            </p>
+      <div className="bg-paper">
+        <section className="border-b border-cloud bg-white px-6 py-20">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ember">Practice capacity audit</p>
+            <h1 className="mt-5 max-w-2xl text-5xl font-semibold leading-[1.02] tracking-[-0.055em] text-obsidian">Map the path from patient intent to recurring care.</h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-iron">Choose a time, share a little context, and we&apos;ll come prepared to discuss the highest-LTV growth opportunity in your practice.</p>
           </div>
         </section>
-
-        <section className="max-w-2xl mx-auto px-6 py-12 md:py-16">
-          <div className="flex items-center gap-3 mb-12">
-            {[1, 2].map((n) => (
-              <div key={n} className="flex items-center gap-3 flex-1 last:flex-none">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0 transition-colors ${
-                    step >= n
-                      ? "bg-plum-deep text-white"
-                      : "bg-parchment text-mist"
-                  }`}
-                >
-                  {n}
-                </div>
-                <span className="text-xs text-ink/60">
-                  {n === 1 ? "Pick a time" : "Your details"}
-                </span>
-                {n < 2 ? (
-                  <div
-                    className={`h-px flex-1 transition-colors ${
-                      step > n ? "bg-rosewood" : "bg-parchment"
-                    }`}
-                  />
-                ) : null}
+        <section className="mx-auto max-w-2xl px-6 py-12 lg:py-20">
+          <div className="mb-12 flex items-center gap-3">
+            {[1, 2].map((number) => (
+              <div key={number} className="flex flex-1 items-center gap-3 last:flex-none">
+                <span className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ${step >= number ? "bg-obsidian text-white" : "bg-mist text-iron"}`}>{number}</span>
+                <span className="text-xs text-iron">{number === 1 ? "Pick a time" : "Your details"}</span>
+                {number === 1 ? <span className={`h-px flex-1 ${step > 1 ? "bg-ember" : "bg-cloud"}`} /> : null}
               </div>
             ))}
           </div>
 
           {step === 1 ? (
             <div>
-              <h2 className="font-serif text-2xl font-normal mb-2">Select a time</h2>
-              <p className="text-sm text-ink/60 mb-8">All times shown in Eastern. Next available week.</p>
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5 mb-10">
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-obsidian">Select a time</h2>
+              <p className="mt-3 text-sm text-iron">All times shown in Eastern. Next available week.</p>
+              <div className="mt-8 grid grid-cols-3 gap-2.5 sm:grid-cols-4">
                 {timeSlots.map((time) => (
-                  <button
-                    key={time}
-                    type="button"
-                    onClick={() => setSelectedTime(time)}
-                    className={`py-3 px-3 rounded-xl text-sm border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood ${
-                      selectedTime === time
-                        ? "bg-plum-deep text-white border-plum-deep"
-                        : "border-parchment text-ink hover:border-rosewood hover:text-rosewood"
-                    }`}
-                  >
-                    {time}
-                  </button>
+                  <button key={time} type="button" onClick={() => setSelectedTime(time)} className={`rounded-[14px] border px-3 py-3 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember ${selectedTime === time ? "border-ember bg-orange-50 text-graphite" : "border-cloud bg-white text-iron hover:border-ember"}`}>{time}</button>
                 ))}
               </div>
-              <button
-                type="button"
-                onClick={() => setStep(2)}
-                disabled={!selectedTime}
-                className="w-full bg-rosewood text-white text-sm font-medium py-4 rounded-full hover:bg-rosewood-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood"
-              >
-                Continue
-              </button>
+              <button type="button" onClick={() => setStep(2)} disabled={!selectedTime} className="mt-10 w-full rounded-[14px] bg-obsidian py-4 text-sm font-semibold text-white transition hover:bg-graphite disabled:cursor-not-allowed disabled:opacity-40">Continue</button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="font-serif text-2xl font-normal">Your details</h2>
-                <button
-                  type="button"
-                  onClick={() => setStep(1)}
-                  className="text-xs text-mist hover:text-rosewood transition-colors"
-                >
-                  ← Change time ({selectedTime})
-                </button>
+            <form onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }} className="space-y-5">
+              <div className="mb-2 flex items-center justify-between gap-4">
+                <h2 className="text-3xl font-semibold tracking-[-0.04em] text-obsidian">Your details</h2>
+                <button type="button" onClick={() => setStep(1)} className="text-xs text-fog hover:text-ember">Change time ({selectedTime})</button>
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Full name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink placeholder:text-mist/60"
-                    placeholder="Jane Smith"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink placeholder:text-mist/60"
-                    placeholder="jane@yourmedspa.com"
-                  />
-                </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Full name" name="name" value={form.name} onChange={handleChange} required placeholder="Jane Smith" />
+                <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder="jane@yourmedspa.com" />
+                <Field label="Phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="(555) 000-0000" />
+                <Field label="Practice name" name="practice" value={form.practice} onChange={handleChange} placeholder="Glow Medical Aesthetics" />
               </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Phone</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink placeholder:text-mist/60"
-                    placeholder="(555) 000-0000"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Practice name</label>
-                  <input
-                    type="text"
-                    name="practice"
-                    value={form.practice}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink placeholder:text-mist/60"
-                    placeholder="Glow Medical Aesthetics"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Locations</label>
-                  <select
-                    name="locations"
-                    value={form.locations}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink"
-                  >
-                    <option value="1">1 location</option>
-                    <option value="2-4">2–4 locations</option>
-                    <option value="5-9">5–9 locations</option>
-                    <option value="10+">10+ locations</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-medium mb-1.5 text-mist">Tier interest</label>
-                  <select
-                    name="tier"
-                    value={form.tier}
-                    onChange={handleChange}
-                    className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink"
-                  >
-                    <option value="tier1">Practice Essentials</option>
-                    <option value="tier2">Practice Growth</option>
-                    <option value="tier3">Full Partnership</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium mb-1.5 text-mist">Who referred you? (optional)</label>
-                <input
-                  type="text"
-                  name="referral"
-                  value={form.referral}
-                  onChange={handleChange}
-                  className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors bg-white text-ink placeholder:text-mist/60"
-                  placeholder="Name or practice"
-                />
-                <p className="text-xs text-mist mt-1.5">
-                  Founding clients referred by our network get setup fee waived.
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium mb-1.5 text-mist">Anything we should know?</label>
-                <textarea
-                  name="notes"
-                  rows={3}
-                  value={form.notes}
-                  onChange={handleChange}
-                  className="w-full border border-parchment rounded-xl px-4 py-3 text-sm outline-none focus:border-rosewood transition-colors resize-none bg-white text-ink placeholder:text-mist/60"
-                  placeholder="Current tools, biggest pain points, goals..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-rosewood text-white text-sm font-medium py-4 rounded-full hover:bg-rosewood-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rosewood"
-              >
-                Confirm booking for {selectedTime}
-              </button>
+              <label className="block text-sm font-medium text-iron">
+                What should we know?
+                <textarea name="notes" rows={4} value={form.notes} onChange={handleChange} className="mt-2 w-full resize-none rounded-[14px] border border-cloud bg-white px-4 py-3 text-sm text-graphite outline-none transition focus:border-ember focus:ring-2 focus:ring-orange-100" placeholder="Current patient programs, goals, or capacity constraints." />
+              </label>
+              <button type="submit" className="w-full rounded-[14px] bg-obsidian py-4 text-sm font-semibold text-white transition hover:bg-graphite">Confirm audit for {selectedTime}</button>
             </form>
           )}
         </section>
-      </>
+      </div>
     </PageTransition>
+  );
+}
+
+function Field({ label, name, value, onChange, type = "text", placeholder, required = false }: { label: string; name: string; value: string; onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; type?: string; placeholder: string; required?: boolean }) {
+  return (
+    <label className="block text-sm font-medium text-iron">
+      {label}{required ? " *" : ""}
+      <input type={type} name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} className="mt-2 w-full rounded-[14px] border border-cloud bg-white px-4 py-3 text-sm text-graphite outline-none transition placeholder:text-ash focus:border-ember focus:ring-2 focus:ring-orange-100" />
+    </label>
   );
 }
