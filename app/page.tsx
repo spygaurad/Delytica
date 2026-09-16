@@ -175,15 +175,26 @@ export default function HomePage() {
             </h1>
 
             <p className="hero-body mx-auto mt-5 max-w-xl text-base leading-relaxed text-iron sm:text-lg">
-              Transform GLP-1, HRT, and aesthetic services into elegant monthly membership programs built around your patients and your practice.
+              Attract high LTV patients and turn demand into recurring care.
             </p>
 
-            <div className="hero-ctas mt-12 flex flex-col items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+              {["GLP-1 Memberships", "HRT Memberships", "Aesthetic Memberships"].map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-cloud bg-white px-3.5 py-1.5 text-xs font-semibold text-iron shadow-sm"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            <div className="hero-ctas mt-10 flex flex-col items-center gap-3">
               <Link
                 href="/booking"
                 className="inline-flex items-center gap-2 rounded-full bg-ember px-8 py-4 text-base font-bold text-white shadow-[0_4px_24px_rgba(255,90,0,0.38)] transition hover:-translate-y-0.5 hover:bg-[#e64e00] hover:shadow-[0_8px_32px_rgba(255,90,0,0.44)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2"
               >
-                Book a Free Practice Audit
+                I&apos;m ready to grow
                 <span aria-hidden="true">→</span>
               </Link>
               <p className="text-sm text-fog">No long term contracts · Integrates with your existing platform stack</p>

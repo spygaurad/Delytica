@@ -42,7 +42,7 @@ export default function Navbar() {
             </a>
           ))}
           <Link href="/booking" className="rounded-full bg-ember px-5 py-2.5 text-sm font-bold text-white shadow-[0_2px_12px_rgba(255,90,0,0.3)] transition hover:bg-[#e64e00] hover:shadow-[0_4px_20px_rgba(255,90,0,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2">
-            Request an audit
+            Grow your Practice
           </Link>
         </div>
 
@@ -61,7 +61,7 @@ export default function Navbar() {
               </a>
             ))}
             <Link href="/booking" onClick={() => setMenuOpen(false)} className="rounded-full bg-ember px-5 py-3 text-center text-sm font-bold text-white">
-              Request an audit
+              Grow your Practice
             </Link>
           </div>
         </div>
