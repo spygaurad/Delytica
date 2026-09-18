@@ -343,117 +343,206 @@ export default function HomePage() {
         {/* ── PRICING ── */}
         <section id="pricing" className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <div className="mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ember">Investment frameworks</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ember">Pricing</p>
             <h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-[-0.04em] text-obsidian sm:text-5xl">
-              Three levels of clinical growth support.
+              Growth frameworks.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-iron">
-              Start with what your practice can absorb today. Expand as the revenue base grows.
+              Choose the growth system your practice needs. Start with patient acquisition. Add continuity and scale as your practice grows.
             </p>
           </div>
+
+          {/* Tier 1 + Tier 2 side by side */}
           <div className="grid gap-6 lg:grid-cols-2">
+
+            {/* 01 — Patient Acquisition */}
             <div className="flex flex-col rounded-[36px] border border-cloud bg-white p-8 sm:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fog">Core visibility</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fog">01 — Patient Acquisition</p>
               <div className="mt-5 flex items-end gap-2">
                 <span className="text-4xl font-bold tracking-[-0.05em] text-obsidian">$2,500–$3,000</span>
-                <span className="pb-1 text-sm text-fog">/mo</span>
+                <span className="pb-1 text-sm text-fog">/ month</span>
               </div>
+              <p className="mt-1.5 text-xs text-fog">+ $1,500/mo min. ad spend paid directly to platforms</p>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-iron">
-                For practices ready to improve local visibility and attract qualified patients for core aesthetic procedures.
+                For practices that need a reliable flow of qualified patient demand.
               </p>
-              <ul className="mt-8 flex-1 grid gap-3 text-sm text-iron">
-                {[
-                  "Neurotoxin maintenance and RF microneedling patient acquisition",
-                  "Google Practice Profile management and optimization",
-                  "60 second automated patient intake protocol",
-                  "Post procedure reputation and review generation",
-                ].map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ember">+</span>
-                    {item}
-                  </li>
+              <div className="mt-8 flex-1 space-y-7 text-sm text-iron">
+                {([
+                  ["Patient Acquisition", [
+                    "Google and Meta patient acquisition campaigns",
+                    "Campaign landing pages for priority services",
+                    "Google Business Profile optimization",
+                    "Local search optimization",
+                  ]],
+                  ["Patient Conversion", [
+                    "Instant patient response",
+                    "Missed call text back",
+                    "Automated appointment follow up",
+                    "Patient qualification and intake",
+                    "Appointment scheduling integration",
+                  ]],
+                  ["Practice Foundation", [
+                    "Review generation",
+                    "Monthly growth reporting",
+                    "Integration with your existing practice systems",
+                  ]],
+                ] as [string, string[]][]).map(([group, items]) => (
+                  <div key={group}>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-ember">{group}</p>
+                    <ul className="grid gap-2">
+                      {items.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="flex-shrink-0 font-bold text-ember">+</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
               <Link
                 href="/booking"
                 className="mt-10 inline-flex w-full items-center justify-center rounded-full border-2 border-obsidian bg-white py-3.5 text-sm font-bold text-obsidian transition hover:bg-obsidian hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               >
-                Get started
+                Get Started →
               </Link>
             </div>
+
+            {/* 02 — Patient Growth */}
             <div className="flex flex-col rounded-[36px] bg-obsidian p-8 text-white sm:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ember">High-LTV continuity</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ember">02 — Patient Growth</p>
               <div className="mt-5 flex items-end gap-2">
                 <span className="text-4xl font-bold tracking-[-0.05em] text-white">$4,500–$5,000</span>
-                <span className="pb-1 text-sm text-mist">/mo</span>
+                <span className="pb-1 text-sm text-mist">/ month</span>
               </div>
+              <p className="mt-1.5 text-xs text-mist/60">+ $3,000/mo min. ad spend paid directly to platforms</p>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-mist">
-                For practices ready to build a recurring revenue base through GLP-1, HRT, and aesthetic membership programs.
+                For practices ready to attract higher value patients and turn more of them into ongoing care.
               </p>
-              <ul className="mt-8 flex-1 grid gap-3 text-sm text-mist">
-                {[
-                  "GLP-1, HRT, and tiered aesthetic membership programs",
-                  "Everything in Core visibility",
-                  "Clinical education content for membership enrollment",
-                  "Care plan continuity architecture and automated billing",
-                  "Quarterly inactive patient reengagement",
-                  "Social media content editing. Up to 12 posts per month formatted and ready to publish",
-                ].map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="flex-shrink-0 font-bold text-ember">+</span>
-                    {item}
-                  </li>
+              <div className="mt-8 flex-1 space-y-7 text-sm text-mist">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ember/70">Everything in Patient Acquisition, plus:</p>
+                {([
+                  ["High Value Patient Acquisition", [
+                    "GLP-1 patient acquisition",
+                    "HRT patient acquisition",
+                    "Aesthetic membership acquisition",
+                    "Campaigns built around priority services",
+                  ]],
+                  ["Patient Education", [
+                    "Pre-consultation education",
+                    "Program explainers",
+                    "Automated educational sequences",
+                    "Patient preparation content",
+                  ]],
+                  ["Ongoing Care", [
+                    "Membership enrollment pathways",
+                    "Treatment to care plan pathways",
+                    "Package and recurring care campaigns",
+                  ]],
+                  ["Patient Reactivation", [
+                    "Existing patient reactivation",
+                    "Lapsed patient campaigns",
+                    "Treatment-based re-engagement",
+                  ]],
+                  ["AI Assisted Communication", [
+                    "AI assisted inquiry responses",
+                    "Automated conversational follow up",
+                    "Lead and patient routing",
+                    "Escalation to your team when needed",
+                  ]],
+                ] as [string, string[]][]).map(([group, items]) => (
+                  <div key={group}>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-ember">{group}</p>
+                    <ul className="grid gap-2">
+                      {items.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="flex-shrink-0 font-bold text-ember">+</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
               <Link
                 href="/booking"
                 className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-ember py-3.5 text-sm font-bold text-white shadow-[0_4px_16px_rgba(255,90,0,0.4)] transition hover:-translate-y-0.5 hover:bg-[#e64e00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               >
-                Book a practice audit
+                Build My Growth System →
               </Link>
             </div>
           </div>
 
-          {/* Tier 3 */}
+          {/* 03 — Practice Scale */}
           <div className="mt-6 rounded-[36px] border border-cloud bg-white p-8 sm:p-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fog">Complete growth system</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fog">03 — Practice Scale</p>
                 <div className="mt-4 flex items-end gap-2">
                   <span className="text-3xl font-bold tracking-[-0.04em] text-obsidian">$7,000–$9,000</span>
-                  <span className="pb-1 text-sm text-fog">/mo</span>
+                  <span className="pb-1 text-sm text-fog">/ month</span>
                 </div>
+                <p className="mt-1.5 text-xs text-fog">+ $6,000+/mo min. ad spend paid directly to platforms</p>
                 <p className="mt-3 max-w-lg text-sm leading-relaxed text-iron">
-                  For any practice ready to build a fully branded clinical education library, equip their team with custom training content, and hand off social media entirely.
+                  For established practices ready to increase capacity, expand their services, and scale patient acquisition.
                 </p>
               </div>
               <Link
                 href="/booking"
                 className="mt-1 inline-flex items-center gap-2 whitespace-nowrap rounded-full border-2 border-obsidian bg-white px-6 py-3 text-sm font-bold text-obsidian transition hover:bg-obsidian hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember"
               >
-                Schedule a call →
+                Scale My Practice →
               </Link>
             </div>
-            <div className="mt-8 grid gap-6 border-t border-cloud pt-8 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["White Label Education Materials", "Practice branded clinical education content. Care plan onboarding guides, protocol explainers, and patient ready resources customized to your brand."],
-                ["Custom Staff Training Videos", "Professionally produced internal training videos tailored to your protocols. For care coordinators, front desk, and providers."],
-                ["Full Social Media Management", "End to end management across Instagram, Facebook, and TikTok. Content creation, scheduling, captions, and multiplatform community engagement."],
-                ["Everything in High-LTV Continuity", "All patient acquisition programs, clinical education enrollment sequences, care plan architecture, and quarterly reengagement included."],
-              ].map(([title, body]) => (
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-ember">Everything in Patient Growth, plus:</p>
+            <div className="mt-6 grid gap-6 border-t border-cloud pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              {([
+                ["Scale Acquisition", [
+                  "Multi-channel patient acquisition",
+                  "Expansion into additional services",
+                  "Larger campaign architecture",
+                  "Advanced audience and campaign segmentation",
+                ]],
+                ["AI Patient Communication", [
+                  "AI voice agents for inbound inquiries",
+                  "24/7 patient communication",
+                  "Automated qualification and routing",
+                  "Appointment scheduling workflows",
+                ]],
+                ["Practice Expansion", [
+                  "Provider capacity analysis",
+                  "Revenue per provider analysis",
+                  "Growth planning for additional services",
+                  "Patient demand planning",
+                  "Strategic monthly growth management",
+                ]],
+                ["Brand & Content Infrastructure", [
+                  "Custom patient education library",
+                  "Staff training content",
+                  "Expanded clinical content production",
+                  "Full social media management",
+                ]],
+              ] as [string, string[]][]).map(([title, items]) => (
                 <div key={title}>
-                  <p className="text-sm font-bold text-graphite">{title}</p>
-                  <p className="mt-2 text-xs leading-relaxed text-fog">{body}</p>
+                  <p className="mb-3 text-sm font-bold text-graphite">{title}</p>
+                  <ul className="grid gap-2">
+                    {items.map((item) => (
+                      <li key={item} className="flex gap-2 text-xs leading-relaxed text-fog">
+                        <span className="flex-shrink-0 font-bold text-ember">+</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Enterprise / multi-location note */}
+          {/* Multi-location note */}
           <p className="mt-6 text-center text-sm text-fog">
-            Multi-location or enterprise scale?{" "}
+            Multi-location practices receive custom pricing based on locations, providers, services, and growth requirements.{" "}
             <Link href="/booking" className="font-semibold text-iron underline underline-offset-4 transition hover:text-ember">
-              Contact us for custom pricing →
+              Contact us →
             </Link>
           </p>
         </section>
